@@ -18,5 +18,9 @@ func (s *ItemService) AddItem(item *domain.Item) error {
         return errors.New("item name is required")
     }
 
+    if item.UnitPrice <= 0 {
+        return errors.New("unit price must be > 0")
+    }
+
     return nil
 }
