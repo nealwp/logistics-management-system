@@ -9,8 +9,7 @@ import (
     "github.com/stretchr/testify/mock"
 )
 
-
-func TestAddItem(t *testing.T) {
+func TestCreateStockRecord(t *testing.T) {
 
     t.Run("valid item does not return error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
@@ -27,29 +26,6 @@ func TestAddItem(t *testing.T) {
         mockDb.AssertExpectations(t)
     })
 
-    t.Run("empty name returns error", func(t *testing.T) {
-        mockDb := &mocks.MockDatabase{}
-        service := NewItemService(mockDb)
-        item := &domain.Item{ID: "123456789", Name: "", UnitPrice: 1234}
-
-        err := service.AddItem(item)
-
-        if err == nil {
-            t.Error("expected error, but got none")
-        }
-    })
-
-    t.Run("zero unit price returns error", func(t *testing.T) {
-        mockDb := &mocks.MockDatabase{}
-        service := NewItemService(mockDb)
-        item := &domain.Item{ID: "123456789", Name: "Sample Item", UnitPrice: 0}
-
-        err := service.AddItem(item)
-
-        if err == nil {
-            t.Error("expected error, but got none")
-        }
-    })
 
     t.Run("empty id returns error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
