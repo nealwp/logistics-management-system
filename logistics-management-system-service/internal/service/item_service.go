@@ -33,7 +33,11 @@ func (s *ItemService) AddItem(item *domain.Item) error {
         return errors.New("unit price must be > 0")
     }
 
-    s.db.InsertItem(item)
+    err := s.db.InsertItem(item)
+
+    if err != nil {
+        return err 
+    }
 
     return nil
 }
