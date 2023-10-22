@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ItemService } from '../item.service';
+import { Component, OnInit } from '@angular/core';
+import { Item, ItemService } from '../item.service';
 
 const fakeItems = [
     {id: "89819873", name: "bolt", unitPrice: 1.23},
@@ -16,8 +16,16 @@ const fakeItems = [
   styleUrls: ['./item-list.component.scss']
 })
 
-export class ItemListComponent {
-    public items = fakeItems 
+export class ItemListComponent implements OnInit {
+    items: Item[] = fakeItems 
 
     constructor(private itemService: ItemService){};
+
+    ngOnInit(): void {
+        this.itemService.getItems().subscribe(data => {
+            this.items = data;
+        });
+    }
+
 }
+
