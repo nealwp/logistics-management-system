@@ -4,7 +4,6 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/nealwp/logistics-management-system/internal/domain"
 	"github.com/nealwp/logistics-management-system/internal/mocks"
     "github.com/stretchr/testify/mock"
 )
@@ -13,11 +12,13 @@ func TestAddAllowance(t *testing.T) {
 
     t.Run("valid allowance does not return error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
+        mockDb.On("ItemExists", mock.Anything).Return(true, nil)
         mockDb.On("InsertAllowance", mock.Anything).Return(nil)
         service := NewAllowanceService(mockDb)
-        allowance := &domain.Allowance{ItemId: "123456789", Quantity: 1}
+        itemId := "123456789"
+        var quantity int32 = 1
 
-        err := service.AddAllowance(allowance)
+        err := service.AddAllowance(itemId, quantity)
 
         if err != nil {
             t.Errorf("Did not expect error, but got: %v", err)
@@ -26,13 +27,45 @@ func TestAddAllowance(t *testing.T) {
         mockDb.AssertExpectations(t)
     })
 
+    t.Run("allowance for non-existing item returns error", func(t *testing.T) {
+        mockDb := &mocks.MockDatabase{}
+        mockDb.On("ItemExists", mock.Anything).Return(false, nil)
+        service := NewAllowanceService(mockDb)
+
+        itemId := "111111111"
+        var quantity int32 = 0
+
+        err := service.AddAllowance(itemId, quantity)
+
+        if err == nil {
+            t.Errorf("expected error, but got none")
+        }
+
+        mockDb.AssertExpectations(t)
+    })
 
     t.Run("empty item id returns error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
         service := NewAllowanceService(mockDb)
-        allowance := &domain.Allowance{ItemId: "", Quantity: 1}
 
-        err := service.AddAllowance(allowance)
+        itemId := ""
+        var quantity int32 = 0
+
+        err := service.AddAllowance(itemId, quantity)
+
+        if err == nil {
+            t.Error("expected error, but got none")
+        }
+    })
+
+    t.Run("negative allowance returns error", func(t *testing.T) {
+        mockDb := &mocks.MockDatabase{}
+        service := NewAllowanceService(mockDb)
+
+        itemId := "123456789"
+        var quantity int32 = -1
+
+        err := service.AddAllowance(itemId, quantity)
 
         if err == nil {
             t.Error("expected error, but got none")
@@ -42,12 +75,14 @@ func TestAddAllowance(t *testing.T) {
     t.Run("db fail to write returns error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
         service := NewAllowanceService(mockDb)
-        allowance := &domain.Allowance{ItemId: "123456789", Quantity: 1}
-
         dbError := errors.New("database error")
+        mockDb.On("ItemExists", mock.Anything).Return(true, nil)
         mockDb.On("InsertAllowance", mock.Anything).Return(dbError)
 
-        err := service.db.InsertAllowance(allowance)
+        itemId := "123456789"
+        var quantity int32 = 1
+
+        err := service.AddAllowance(itemId, quantity)
 
         if err == nil {
             t.Fatal("expected error, but got none")

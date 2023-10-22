@@ -19,3 +19,7 @@ func (m *MockDatabase) InsertAllowance(allowance *domain.Allowance) error {
     return args.Error(0)
 }
 
+func (m *MockDatabase) ItemExists(itemId string) (bool, error) {
+    args := m.Called(itemId)
+    return args.Bool(0), args.Error(1)
+}
