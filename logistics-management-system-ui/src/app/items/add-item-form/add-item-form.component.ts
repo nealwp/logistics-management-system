@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-item-form',
@@ -13,7 +14,14 @@ export class AddItemFormComponent {
       unitPrice: 0
   }
 
+  constructor(private router: Router){};
+
   public onSubmit() {
       console.log("submitted")
+      this.router.navigate(['/']);
+  }
+
+  public onCancel() {
+      this.router.navigate(['/']);
   }
 }

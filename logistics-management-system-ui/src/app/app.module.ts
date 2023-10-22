@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddItemFormComponent } from './add-item-form/add-item-form.component';
+import { AddItemFormComponent } from './items/add-item-form/add-item-form.component';
+import { ItemListComponent } from './items/item-list/item-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddItemFormComponent
+    AddItemFormComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
