@@ -15,8 +15,8 @@
   * fails if requisitions exist
 
 * Establish allowance
-  * item must exist first
-  * provide quantity
+  * ~~fails if item does not exist~~
+  * ~~provide quantity~~
 
 * Create a stock requisition
   * unique identifier
@@ -31,7 +31,7 @@
   * creates pending stow quantity
 
 * Assign location
-  * item must exist
+  * fails if item does not exist
 
 * Stow item
   * requires inventory location

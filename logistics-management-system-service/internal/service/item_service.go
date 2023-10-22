@@ -39,13 +39,3 @@ func (s *ItemService) AddItem(item *domain.Item) error {
     return nil
 }
 
-func (s *ItemService) ItemExists(itemId string) (bool, error) {
-    
-    exists, err := s.db.ItemExists(itemId)
-
-    if err != nil {
-        return false, err 
-    }
-
-    return exists, nil
-}
