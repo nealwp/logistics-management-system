@@ -2,7 +2,6 @@
 
 
 * No allowance can exist without an item
-* No location can exist without an item
 * No stock requisition can exist without an item
 * No stock requisition can be created without an allowance
 
