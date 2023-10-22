@@ -1,5 +1,11 @@
 # Logistics Management System Service
 
+
+* No allowance can exist without an item
+* No location can exist without an item
+* No stock requisition can exist without an item
+* No stock requisition can be created without an allowance
+
 ## Requirements
 
 * ~~Add an Item~~
@@ -9,7 +15,7 @@
   * should not create if item already exists
 
 * Remove an Item
-  * fails if iteam does not exist
+  * fails if item does not exist
   * fails if inventory exists
   * fails if orders exists 
   * fails if requisitions exist
