@@ -5,17 +5,14 @@ import (
 	"strings"
 
 	"github.com/nealwp/logistics-management-system/internal/domain"
+	"github.com/nealwp/logistics-management-system/internal/db"
 )
 
 type ItemService struct {
-    db Database
+    db db.Database
 }
 
-type Database interface {
-    InsertItem(item *domain.Item) error
-}
-
-func NewItemService(db Database) *ItemService {
+func NewItemService(db db.Database) *ItemService {
     return &ItemService{db: db}
 }
 

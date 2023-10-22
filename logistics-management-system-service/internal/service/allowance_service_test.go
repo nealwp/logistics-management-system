@@ -9,15 +9,15 @@ import (
     "github.com/stretchr/testify/mock"
 )
 
-func TestCreateStockRecord(t *testing.T) {
+func TestAddAllowance(t *testing.T) {
 
-    t.Run("valid item does not return error", func(t *testing.T) {
+    t.Run("valid allowance does not return error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
-        mockDb.On("InsertItem", mock.Anything).Return(nil)
-        service := NewItemService(mockDb)
-        item := &domain.Item{ID: "123456789", Name: "Sample Item", UnitPrice: 1234}
+        mockDb.On("InsertAllowance", mock.Anything).Return(nil)
+        service := NewAllowanceService(mockDb)
+        allowance := &domain.Allowance{ItemId: "123456789", Quantity: 1}
 
-        err := service.AddItem(item)
+        err := service.AddAllowance(allowance)
 
         if err != nil {
             t.Errorf("Did not expect error, but got: %v", err)
@@ -27,12 +27,12 @@ func TestCreateStockRecord(t *testing.T) {
     })
 
 
-    t.Run("empty id returns error", func(t *testing.T) {
+    t.Run("empty item id returns error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
-        service := NewItemService(mockDb)
-        item := &domain.Item{ID: "", Name: "Sample Item", UnitPrice: 0}
+        service := NewAllowanceService(mockDb)
+        allowance := &domain.Allowance{ItemId: "", Quantity: 1}
 
-        err := service.AddItem(item)
+        err := service.AddAllowance(allowance)
 
         if err == nil {
             t.Error("expected error, but got none")
@@ -41,13 +41,13 @@ func TestCreateStockRecord(t *testing.T) {
 
     t.Run("db fail to write returns error", func(t *testing.T) {
         mockDb := &mocks.MockDatabase{}
-        service := NewItemService(mockDb)
-        item := &domain.Item{ID: "123456789", Name: "Sample Item", UnitPrice: 1234}
+        service := NewAllowanceService(mockDb)
+        allowance := &domain.Allowance{ItemId: "123456789", Quantity: 1}
 
         dbError := errors.New("database error")
-        mockDb.On("InsertItem", mock.Anything).Return(dbError)
+        mockDb.On("InsertAllowance", mock.Anything).Return(dbError)
 
-        err := service.AddItem(item)
+        err := service.db.InsertAllowance(allowance)
 
         if err == nil {
             t.Fatal("expected error, but got none")

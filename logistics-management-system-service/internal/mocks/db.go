@@ -14,3 +14,8 @@ func (m *MockDatabase) InsertItem(item *domain.Item) error {
     return args.Error(0)
 }
 
+func (m *MockDatabase) InsertAllowance(allowance *domain.Allowance) error {
+    args := m.Called(allowance)
+    return args.Error(0)
+}
+

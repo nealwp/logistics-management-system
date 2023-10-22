@@ -1,7 +1,7 @@
 package domain
 
-type Stock struct {
+type Allowance struct {
     ID          string
     ItemId      string
-    Allowance   int32
+    Quantity    int32
 }
