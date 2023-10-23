@@ -39,3 +39,14 @@ func (s *ItemService) AddItem(item *domain.Item) error {
     return nil
 }
 
+
+func (s *ItemService) GetItems() ([]domain.Item, error) {
+    
+    items, err := s.db.GetAllItems()
+
+    if err != nil {
+        return nil, err 
+    }
+
+    return items, nil
+}

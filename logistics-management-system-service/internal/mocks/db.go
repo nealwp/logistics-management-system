@@ -23,3 +23,8 @@ func (m *MockDatabase) ItemExists(itemId string) (bool, error) {
     args := m.Called(itemId)
     return args.Bool(0), args.Error(1)
 }
+
+func (m *MockDatabase) GetAllItems() ([]domain.Item, error) {
+    args := m.Called()
+    return args.Get(0).([]domain.Item), args.Error(1)
+}
