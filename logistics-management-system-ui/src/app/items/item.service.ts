@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 export interface Item {
@@ -22,7 +21,11 @@ const fakeItems: Item[] = [
 })
 export class ItemService {
 
-    constructor(private http: HttpClient) {}
+    constructor() {}
+
+    createItem(item: Item): void {
+        fakeItems.push(item)
+    }
 
     getItems(): Observable<Item[]> {
         return of(fakeItems)

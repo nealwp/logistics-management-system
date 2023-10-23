@@ -19,10 +19,64 @@
                         id="itemDropdown"
                         ngbDropdownAnchor
                         (focus)="itemDrop.open()"
-                        >Items</button>
+                        >Items
+                    </button>
                     <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="itemDropdown">
                         <li><a class="dropdown-item" ngbDropdownItem routerLink="/add-item">Add Item</a></li>
                         <li><a class="dropdown-item" ngbDropdownItem routerLink="/list-items">Item List</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <div class="d-inline-block" ngbDropdown #allowanceDrop="ngbDropdown">
+                    <button
+                        type="button"
+                        class="btn btn-dark me-2"
+                        id="allowanceDropdown"
+                        ngbDropdownAnchor
+                        (focus)="allowanceDrop.open()"
+                        >Allowances
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="allowanceDropdown">
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/add-allowance">Add Allowance</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/list-allowances">Allowance List</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <div class="d-inline-block" ngbDropdown #inventoryDrop="ngbDropdown">
+                    <button
+                        type="button"
+                        class="btn btn-dark me-2"
+                        id="allowanceDropdown"
+                        ngbDropdownAnchor
+                        (focus)="inventoryDrop.open()"
+                        >Inventory
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="inventoryDropdown">
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/add-location">Create Location</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/order-stock">Re-order Stock</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/schedule-inventory">Schedule Inventory Count</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/post-inventory">Post Inventory Counts</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/offload">Offload Excess Stock</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <div class="d-inline-block" ngbDropdown #ordersDrop="ngbDropdown">
+                    <button
+                        type="button"
+                        class="btn btn-dark me-2"
+                        id="orderDropdown"
+                        ngbDropdownAnchor
+                        (focus)="ordersDrop.open()"
+                        >Orders
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="allowanceDropdown">
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/new-order">New Order</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/order-status">Update Order Status</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/orders">Active Orders</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem routerLink="/order-history">Order History</a></li>
                     </ul>
                 </div>
             </li>

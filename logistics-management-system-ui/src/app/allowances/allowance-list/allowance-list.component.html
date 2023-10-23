@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <h3>Allowance List</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Allowance Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let allowance of allowances">
+                <td><a [routerLink]="['/item', allowance.itemId]">{{ allowance.itemId }}</a></td>
+                <td>{{ allowance.level }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

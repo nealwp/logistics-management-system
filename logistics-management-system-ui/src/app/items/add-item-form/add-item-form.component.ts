@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Item, ItemService } from '../item.service';
 
 @Component({
   selector: 'app-add-item-form',
@@ -8,17 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AddItemFormComponent {
 
-  item = {
-      id: '',
-      name: '',
-      unitPrice: 0
-  }
+  item: Item = <Item>{}
 
-  constructor(private router: Router){};
+  constructor(private router: Router, private itemService: ItemService){};
 
   public onSubmit() {
-      console.log("submitted")
-      this.router.navigate(['/']);
+      this.itemService.createItem(this.item)
+      this.router.navigate(['/item', this.item.id]);
   }
 
   public onCancel() {
