@@ -1,0 +1,33 @@
+<div class="card border-warning">
+    <div class="card-header bg-warning">
+        <b>Active Orders</b>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order No.</th>
+                        <th>Item</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Order Date</th>
+                        <th>Status</th>
+                        <th>Status Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td><a [routerLink]="['/order', order.id]">{{ order.id }}</a></td>
+                        <td><a [routerLink]="['/item', order.itemId]">{{ order.itemId }}</a></td>
+                        <td>{{ order.itemName | uppercase }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.orderDate }}</td>
+                        <td>{{ order.status | uppercase }}</td>
+                        <td>{{ order.statusDate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

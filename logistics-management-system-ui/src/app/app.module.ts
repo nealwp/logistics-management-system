@@ -11,6 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './items/item/item.component';
 import { AddAllowanceFormComponent } from './allowances/add-allowance-form/add-allowance-form.component';
 import { AllowanceListComponent } from './allowances/allowance-list/allowance-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { InventoryValueComponent } from './dashboard/widget/inventory-value/inventory-value.component';
+import { OrderVolumeComponent } from './dashboard/widget/order-volume/order-volume.component';
+import { IssueEffectivenessComponent } from './dashboard/widget/issue-effectiveness/issue-effectiveness.component';
+import { OpenOrdersComponent } from './dashboard/widget/open-orders/open-orders.component';
+import { StockLevelsComponent } from './dashboard/widget/stock-levels/stock-levels.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,13 @@ import { AllowanceListComponent } from './allowances/allowance-list/allowance-li
     ItemListComponent,
     ItemComponent,
     AddAllowanceFormComponent,
-    AllowanceListComponent
+    AllowanceListComponent,
+    DashboardComponent,
+    InventoryValueComponent,
+    OrderVolumeComponent,
+    IssueEffectivenessComponent,
+    OpenOrdersComponent,
+    StockLevelsComponent
   ],
   imports: [
     BrowserModule,

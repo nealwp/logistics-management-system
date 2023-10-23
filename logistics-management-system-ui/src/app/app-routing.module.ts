@@ -5,6 +5,7 @@ import { ItemListComponent } from './items/item-list/item-list.component';
 import { ItemComponent } from './items/item/item.component';
 import { AllowanceListComponent } from './allowances/allowance-list/allowance-list.component';
 import { AddAllowanceFormComponent } from './allowances/add-allowance-form/add-allowance-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
     { path: 'add-item', component: AddItemFormComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'item/:id', component: ItemComponent },
     { path: 'list-allowances', component: AllowanceListComponent },
     { path: 'add-allowance', component: AddAllowanceFormComponent },
+    { path: 'home', component: DashboardComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },
 ];
 
