@@ -1,17 +1,23 @@
-<div class="container mt-5">
-    <h3 class="text-light">Item List</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of items">
-                <td><a [routerLink]="['/item', item.id]">{{ item.id }}</a></td>
-                <td>{{ item.name | uppercase }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container mt-5"> 
+    <div class="card border-warning">
+        <div class="card-header bg-warning">
+            <b>Item List</b>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items">
+                        <td><a [routerLink]="['/item', item.id]">{{ item.id }}</a></td>
+                        <td>{{ item.name | uppercase }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

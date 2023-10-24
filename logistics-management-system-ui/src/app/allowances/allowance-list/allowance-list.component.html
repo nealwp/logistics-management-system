@@ -1,17 +1,23 @@
 <div class="container mt-5">
-    <h3 class="text-light">Allowance List</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Item ID</th>
-                <th>Allowance Level</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let allowance of allowances">
-                <td><a [routerLink]="['/item', allowance.itemId]">{{ allowance.itemId }}</a></td>
-                <td>{{ allowance.level }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card border-warning">
+        <div class="card-header bg-warning">
+            <b>Allowance List</b>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Allowance Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let allowance of allowances">
+                        <td><a [routerLink]="['/item', allowance.itemId]">{{ allowance.itemId }}</a></td>
+                        <td>{{ allowance.level }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
