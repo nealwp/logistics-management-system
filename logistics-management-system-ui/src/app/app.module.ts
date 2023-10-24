@@ -17,6 +17,7 @@ import { OrderVolumeComponent } from './dashboard/widget/order-volume/order-volu
 import { IssueEffectivenessComponent } from './dashboard/widget/issue-effectiveness/issue-effectiveness.component';
 import { OpenOrdersComponent } from './dashboard/widget/open-orders/open-orders.component';
 import { StockLevelsComponent } from './dashboard/widget/stock-levels/stock-levels.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StockLevelsComponent } from './dashboard/widget/stock-levels/stock-leve
     OrderVolumeComponent,
     IssueEffectivenessComponent,
     OpenOrdersComponent,
-    StockLevelsComponent
+    StockLevelsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
