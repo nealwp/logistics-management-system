@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+    navTitle = "Logistics Management System" 
+
     navOptions = [
         {
             title: 'Items',
