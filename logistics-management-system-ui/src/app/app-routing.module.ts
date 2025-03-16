@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'list-allowances', component: AllowanceListComponent },
     { path: 'add-allowance', component: AddAllowanceFormComponent },
     { path: 'home', component: DashboardComponent },
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

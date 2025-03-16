@@ -1,33 +1,35 @@
-<h3 class="mt-4 ms-4 text-light">Item: {{ item.id }}</h3>
-<div class="row mt-4 ms-4 justify-content-left">
-    <div class="col-md-4">
-        <div class="card border-warning">
-            <div class="card-header bg-warning">
-               <b>Item Detail </b>
-            </div>
-            <div class="card-body">
-                <div class="row mt-1">
-                    <div class="col">
-                        <label for="itemName">Item ID:</label>
-                    </div>
-                    <div class="col">
-                        <div>{{ item.id }}</div>
-                    </div>
+<div class="container">
+    <h3 class="mt-4 ms-4 text-light">Item: {{ item.id }}</h3>
+    <div class="row mt-4 ms-4 justify-content-left">
+        <div class="col-md-4">
+            <div class="card border-warning">
+                <div class="card-header bg-warning">
+                    <b>Item Detail </b>
                 </div>
-                <div class="row mt-1">
-                    <div class="col">
-                        <label for="itemName">Name:</label>
+                <div class="card-body">
+                    <div class="row mt-1">
+                        <div class="col">
+                            <label for="itemName">Item ID:</label>
+                        </div>
+                        <div class="col">
+                            <div>{{ item.id }}</div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <div>{{ item.name | uppercase }}</div>
+                    <div class="row mt-1">
+                        <div class="col">
+                            <label for="itemName">Name:</label>
+                        </div>
+                        <div class="col">
+                            <div>{{ item.name | uppercase }}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-1">
-                    <div class="col">
-                        <label for="itemName">Unit Price:</label>
-                    </div>
-                    <div class="col">
-                        <div>{{ item.unitPrice | currency }}</div>
+                    <div class="row mt-1">
+                        <div class="col">
+                            <label for="itemName">Unit Price:</label>
+                        </div>
+                        <div class="col">
+                            <div>{{ item.unitPrice | currency }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
